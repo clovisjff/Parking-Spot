@@ -1,0 +1,23 @@
+
+header , footer{
+    height: 80px;
+    width: 100%;
+}
+
+body{
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+main{
+    height: 100%;
+    flex: 1 !important;
+    font: normal 20pt Courier;
+    font-style: bold;
+}
+
+footer{
+    font: normal 12pt Courier;
+    text-align: center;
+    font-style: bold;
+}
