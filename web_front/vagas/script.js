@@ -6,36 +6,33 @@ const tableBody = document.getElementById('table-body');
 async function getparkingSpot() {
     const response = await fetch(parkingSpotUrl);
     if (response.ok) {
-        const parkingSpots = await response.json();
+        const tb_parking_spot = await response.json();
 
-        if (parkingSpots.lenght > 0){
+        if (tb_parking_spot.lenght > 0) {
             table.removeAttribute('hidden');
-            parkingSpots.foreach((parkingSpot) => {
-                createRow(parkingSpot);
+            tb_parking_spot.foreach((tb_parking_spot) => {
+                createRow(tb_parking_spot);
             })
         }
-       
+
     }
 }
 
-function createRow({id , responsibleName }){
+function createRow({ id, responsibleName }) {
     const row = document.createElement('tr');
     const idCollumn = document.createElement('th');
     const responsibleNameCollumn = document.createElement('td');
-   // const parkingSpotNumberCollum = document.createElement('th');
+
 
     idCollumn.textContent = id;
-    idCollumn.setAttribute("scope","row");
+    idCollumn.setAttribute("scope", "row");
 
     responsibleNameCollumn.textContent = responsibleName;
 
-  //  parkingSpotNumberCollum.textContent = parkingSpotNumber;
 
-    
-    
     row.appendChild(idCollumn);
     row.appendChild(responsibleNameCollumn);
-   // row.appendChild(parkingSpotNumberCollum);
+
 
     tableBody.appendChild(row);
 
